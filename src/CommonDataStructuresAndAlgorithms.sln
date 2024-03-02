@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonArrayOperations", "CommonArrayOperations\CommonArrayOperations.csproj", "{8AFD75B3-ED42-4D84-8103-7B34AA97755B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedLists", "LinkedLists\LinkedLists.csproj", "{026E87A0-B08B-4B73-A810-0D159C597944}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AFD75B3-ED42-4D84-8103-7B34AA97755B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AFD75B3-ED42-4D84-8103-7B34AA97755B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AFD75B3-ED42-4D84-8103-7B34AA97755B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AFD75B3-ED42-4D84-8103-7B34AA97755B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{026E87A0-B08B-4B73-A810-0D159C597944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026E87A0-B08B-4B73-A810-0D159C597944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026E87A0-B08B-4B73-A810-0D159C597944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026E87A0-B08B-4B73-A810-0D159C597944}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
