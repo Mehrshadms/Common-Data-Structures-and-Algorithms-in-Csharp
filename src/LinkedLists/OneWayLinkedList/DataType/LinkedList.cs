@@ -15,34 +15,85 @@ public class LinkedList
 
     public void InsertEnd(int data)
     {
-        Node? currnet = First;
-        while (currnet != null)
+        Node? current = First;
+        while (current.Next != null)
         {
-            currnet = currnet.Next;
+            current = current.Next;
         }
 
         Node newNode = new Node(data);
-        currnet.Next = newNode;
+        newNode.Next = null;
+        current.Next = newNode;
         Length++;
+    }
+
+    public void InsertAt(int nodeIndex,int data)
+    {
+        if (nodeIndex >= Length)
+        {
+            InsertEnd(data);
+        }
+        else if(nodeIndex == 0)
+        {
+            InsertStart(data);
+        }
+        else
+        {
+            Node? current = First;
+            for (int i = 0; i < nodeIndex; i++)
+            {
+                if(current.Next != null)
+                    current = current.Next;
+            }
+            Node newNode = new Node(data);
+            newNode.Next = current.Next;
+            current.Next = newNode;
+            Length++;
+        }
     }
     
     public void DeleteFirst()
     {
-        if (First != null) First = First.Next;
-        Length--;
+        if (First.Next != null)
+        {
+            First = First.Next;
+            Length--;
+        }
     }
 
     public void DeleteEnd()
     {
-        Node? currnet = First;
-        while (currnet != null)
+        Node? current = First;
+        while (current.Next != null)
         {
-            currnet = currnet.Next;
+            current = current.Next;
         }
-        currnet = null;
+        current = null;
         Length--;
     }
     
+    public void DeleteAt(int nodeIndex,int data)
+    {
+        if (nodeIndex >= Length)
+        {
+            DeleteEnd();
+        }
+        else if(nodeIndex == 0)
+        {
+            DeleteFirst();
+        }
+        else
+        {
+            Node? current = First;
+            for (int i = 0; i < nodeIndex; i++)
+            {
+                if(current.Next != null)
+                    current = current.Next;
+            }
+            current.Next = current.Next.Next;
+            Length--;
+        }
+    }
 
     public void DisplayNodes()
     {

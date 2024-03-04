@@ -1,3 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("Hello, World!");
+LinkedLists.OneWayLinkedList.Samples.InsertExamples.Insertions();
+
+Console.ReadLine();
