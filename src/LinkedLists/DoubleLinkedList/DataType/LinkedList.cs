@@ -1,4 +1,4 @@
-namespace LinkedLists.OneWayLinkedList.DataType;
+namespace LinkedLists.DoubleLinkedList.DataType;
 
 public class LinkedList
 {
@@ -7,29 +7,38 @@ public class LinkedList
 
     public void InsertStart(int data)
     {
-        Node newNode = new Node(data);
-        newNode.Next = First;
-        First = newNode;
+        Node newNode = new Node(data); 
+        newNode.Previous = null;
+        if (First != null)
+        {
+            newNode.Next = First;
+            First.Previous = newNode;
+            First = newNode;
+        }
+        else
+        {
+            newNode.Next = null;
+            First = newNode;
+        }
+        
         Length++;
     }
-
     public void InsertEnd(int data)
     {
-        Node? current = First;
+        Node current = First;
         while (current.Next != null)
         {
             current = current.Next;
         }
-
         Node newNode = new Node(data);
-        newNode.Next = null;
         current.Next = newNode;
+        newNode.Previous = current;
         Length++;
     }
 
     public void InsertAt(int nodeIndex,int data)
     {
-        if (nodeIndex >= Length)
+        if (nodeIndex > Length)
         {
             InsertEnd(data);
         }
@@ -48,14 +57,18 @@ public class LinkedList
             Node newNode = new Node(data);
             newNode.Next = current.Next;
             current.Next = newNode;
+            newNode.Previous = current;
+            if(newNode.Next != null)
+                newNode.Next.Previous = newNode;
             Length++;
         }
     }
-    
+
     public void DeleteFirst()
     {
-        if (First.Next != null)
+        if(First.Next != null)
         {
+            First.Next.Previous = null;
             First = First.Next;
             Length--;
         }
@@ -68,11 +81,10 @@ public class LinkedList
         {
             current = current.Next;
         }
-        current = null;
-        Length--;
+        current.Previous.Next = null;
     }
-    
-    public void DeleteAt(int nodeIndex,int data)
+
+    public void DeleteAt(int nodeIndex)
     {
         if (nodeIndex >= Length)
         {
@@ -91,10 +103,11 @@ public class LinkedList
                     current = current.Next;
             }
             current.Next = current.Next.Next;
+            current.Next.Next.Previous = current.Next.Previous;
             Length--;
         }
     }
-
+    
     public void DisplayNodes()
     {
         Node? current = First;

@@ -2,14 +2,14 @@ namespace CommonArrayOperations.Array;
 
 public class ArrayDataType(int capacity)
 {
-   public int[] IntArray = new int[capacity];
-   public int Length = 0;
+   private int[] _intArray { get; set; } = new int[capacity];
+   public int Length { get; private set; } = 0;
 
    public int GetIndexOf(int key)
    {
       for (int i = 0; i < Length; i++)
       {
-         if (key == IntArray[i])
+         if (key == _intArray[i])
             return i;
       }
       return -1;
@@ -26,39 +26,78 @@ public class ArrayDataType(int capacity)
       return false;
    }
 
+   public bool IsEmpty()
+   {
+      return Length == 0;
+   }
+
+   public bool IsFull()
+   {
+      return Length == (_intArray.Length);
+   }
+
    public void InsertDataArray(int[] data)
    {
+      if(data.Length >= _intArray.Length)
+         return;
+      
       for (int i = 0; i < data.GetUpperBound(0); i++)
       {
-         IntArray[i] = data[i];
+         _intArray[i] = data[i];
          Length++;
       }
    }
 
-   public void InsertDataAt(int data,int index = 0)
+   public void InsertEnd(int data)
    {
-      for (int i = (IntArray.Length - 2); i >= index; i--)
+      if (Length >= (_intArray.Length)) return;
+      
+      _intArray[Length] = data;
+      Length++;
+   }
+
+   public void InsertStart(int data)
+   {
+      if(Length >= (_intArray.Length)) return;
+      
+      for (int i = Length; i > 0; i--)
       {
-         IntArray[i + 1] = IntArray[i];
+         _intArray[i] = _intArray[i-1];
       }
-      
-      if(Length < IntArray.GetUpperBound(0))
-         Length++;
-      
-      IntArray[index] = data;
+      _intArray[0] = data;
+      Length++;
    }
 
-   public void DeleteFromEnd()
+   public void InsertAt(int data,int index = 0)
    {
-      IntArray[Length] = 0;
+      for (int i = Length; i >= index; i--)
+      {
+         _intArray[i + 1] = _intArray[i];
+      }
+      _intArray[index] = data;
+      Length++;
+   }
+
+   public void DeleteEnd()
+   {
+      _intArray[Length] = 0;
       Length--;
    }
 
-   public void DeleteDataAt(int index = 0)
+   public void DeleteStart()
+   {
+      for (int i = 1; i <= Length; i++)
+      {
+         _intArray[i - 1] = _intArray[i];
+      }
+      Length--;
+   }
+
+   public void DeleteAt(int index = 0)
    {
       for (int i = (index+1); i < Length; i++)
       {
-         IntArray[i - 1] = IntArray[i];
+         _intArray[i - 1] = _intArray[i];
       }
       Length--;
    }

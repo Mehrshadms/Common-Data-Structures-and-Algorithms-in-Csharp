@@ -1,5 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using CommonArrayOperations.Array;
+using CommonArrayOperations.Examples;
 
-using CommonArrayOperations.Array;
+Sample.ExecuteSample();
 
-Console.WriteLine();
+Console.ReadLine();

@@ -1,5 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using singleLink = LinkedLists.SingleLinkedList.Example;
+using doubleLink = LinkedLists.DoubleLinkedList.Example;
 
-LinkedLists.OneWayLinkedList.Samples.InsertExamples.Insertions();
+singleLink.Sample.ExecuteSample();
+
+Console.WriteLine(new string('=',10));
+
+doubleLink.Sample.ExecuteSample();
 
 Console.ReadLine();

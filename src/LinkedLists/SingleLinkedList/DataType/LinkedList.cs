@@ -1,4 +1,4 @@
-namespace LinkedLists.TwoWayLinkedList.DataType;
+namespace LinkedLists.SingleLinkedList.DataType;
 
 public class LinkedList
 {
@@ -9,27 +9,27 @@ public class LinkedList
     {
         Node newNode = new Node(data);
         newNode.Next = First;
-        First.Previous = newNode;
-        newNode.Previous = null;
         First = newNode;
         Length++;
     }
+
     public void InsertEnd(int data)
     {
-        Node current = First;
+        Node? current = First;
         while (current.Next != null)
         {
             current = current.Next;
         }
+
         Node newNode = new Node(data);
+        newNode.Next = null;
         current.Next = newNode;
-        newNode.Previous = current;
         Length++;
     }
 
     public void InsertAt(int nodeIndex,int data)
     {
-        if (nodeIndex > Length)
+        if (nodeIndex >= Length)
         {
             InsertEnd(data);
         }
@@ -48,18 +48,15 @@ public class LinkedList
             Node newNode = new Node(data);
             newNode.Next = current.Next;
             current.Next = newNode;
-            newNode.Previous = current;
-            if(newNode.Next != null)
-                newNode.Next.Previous = newNode;
             Length++;
         }
     }
-
+    
     public void DeleteFirst()
     {
-        if(First.Next != null)
+        if (First.Next != null)
         {
-            First.Next.Previous = null;
+            First = First.Next;
             Length--;
         }
     }
@@ -67,14 +64,15 @@ public class LinkedList
     public void DeleteEnd()
     {
         Node? current = First;
-        while (current.Next != null)
+        while (current.Next.Next != null)
         {
             current = current.Next;
         }
-        current.Previous.Next = null;
+        current.Next = null;
+        Length--;
     }
-
-    public void DeleteAt(int nodeIndex, int data)
+    
+    public void DeleteAt(int nodeIndex)
     {
         if (nodeIndex >= Length)
         {
@@ -87,17 +85,21 @@ public class LinkedList
         else
         {
             Node? current = First;
-            for (int i = 0; i < nodeIndex; i++)
+            for (int i = 0; i < (nodeIndex-1); i++)
             {
                 if(current.Next != null)
                     current = current.Next;
             }
             current.Next = current.Next.Next;
-            current.Next.Next.Previous = current.Next.Previous;
             Length--;
         }
     }
-    
+
+    public bool IsEmpty()
+    {
+        return First == null;
+    }
+
     public void DisplayNodes()
     {
         Node? current = First;
