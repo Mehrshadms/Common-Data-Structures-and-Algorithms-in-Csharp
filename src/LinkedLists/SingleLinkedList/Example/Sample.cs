@@ -8,6 +8,7 @@ public static class Sample
 
     private static void Insertions()
     {
+        Console.WriteLine("Insertion Example...");
         _linkedList.InsertStart(5);
         _linkedList.InsertStart(4);
         _linkedList.InsertStart(3);
@@ -28,6 +29,8 @@ public static class Sample
 
     private static void Deletion()
     {
+        Console.WriteLine("Deletion Example...");
+
         _linkedList.DeleteEnd();
         
         _linkedList.DeleteAt(2);
@@ -43,10 +46,7 @@ public static class Sample
     public static void ExecuteSample()
     {
         Console.WriteLine("Single Linked List Sample");
-
-        Console.WriteLine("Insertion Example");
         Insertions();
-        Console.WriteLine("Deletion Example");
         Deletion();
     }
 }
