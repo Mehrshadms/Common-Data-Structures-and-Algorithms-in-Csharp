@@ -2,7 +2,7 @@ using CommonArrayOperations.Array;
 
 namespace CommonArrayOperations.Examples;
 
-public static class Sample
+public static class CommonArrayOperationSample
 { 
     private static readonly ArrayDataType Arr = new ArrayDataType(10);
     private static void Insertion()
@@ -20,6 +20,11 @@ public static class Sample
         
         Console.WriteLine($"Is Array Full? {Arr.IsFull()}");
         Console.WriteLine($"There is {Arr.Length} Element");
+    }
+
+    private static void SortAndSearch()
+    {
+        Arr.Exists(9);
     }
 
     private static void Deletion()

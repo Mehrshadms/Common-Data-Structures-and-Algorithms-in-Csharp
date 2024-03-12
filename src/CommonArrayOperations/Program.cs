@@ -1,6 +1,4 @@
-﻿using CommonArrayOperations.Array;
-using CommonArrayOperations.Examples;
-
-Sample.ExecuteSample();
+﻿
+CommonArrayOperations.Examples.CommonArrayOperationSample.ExecuteSample();
 
 Console.ReadLine();

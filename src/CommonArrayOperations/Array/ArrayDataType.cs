@@ -2,8 +2,10 @@ namespace CommonArrayOperations.Array;
 
 public class ArrayDataType(int capacity)
 {
-   private int[] _intArray { get; set; } = new int[capacity];
+   protected int[] _intArray { get; set; } = new int[capacity];
    public int Length { get; private set; } = 0;
+
+   public int[] GetArray() => _intArray;
 
    public int GetIndexOf(int key)
    {
@@ -14,17 +16,20 @@ public class ArrayDataType(int capacity)
       }
       return -1;
    }
+
    
-   public bool Exists(int[] inputArr, int key)
+   public bool Exists(int key)
    {
       for (int i = 0; i < Length; i++)
       {
-         if (key == inputArr[i])
+         if (key == _intArray[i])
             return true;
       }
 
       return false;
    }
+   
+
 
    public bool IsEmpty()
    {
@@ -38,10 +43,10 @@ public class ArrayDataType(int capacity)
 
    public void InsertDataArray(int[] data)
    {
-      if(data.Length >= _intArray.Length)
+      if(data.Length > _intArray.Length)
          return;
       
-      for (int i = 0; i < data.GetUpperBound(0); i++)
+      for (int i = 0; i < data.Length; i++)
       {
          _intArray[i] = data[i];
          Length++;
