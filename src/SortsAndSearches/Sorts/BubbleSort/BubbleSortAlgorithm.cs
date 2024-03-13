@@ -1,6 +1,6 @@
 using CommonArrayOperations.Array;
 
-namespace SortsAndSearches.BubbleSort;
+namespace SortsAndSearches.Sorts.BubbleSort;
 
 public class BubbleSortAlgorithm(int capacity) : ArrayDataType(capacity)
 {

@@ -1,4 +1,4 @@
-namespace Trees.Shared;
+namespace Trees.BinaryTree.DataType;
 
 public class TreeNode(int data)
 {

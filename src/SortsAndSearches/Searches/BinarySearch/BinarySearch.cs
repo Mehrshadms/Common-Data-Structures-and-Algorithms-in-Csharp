@@ -1,6 +1,6 @@
 using CommonArrayOperations.Array;
 
-namespace SortsAndSearches.BinarySearch;
+namespace SortsAndSearches.Searches.BinarySearch;
 
 public class BinarySearch(int capacity) : ArrayDataType(capacity)
 {

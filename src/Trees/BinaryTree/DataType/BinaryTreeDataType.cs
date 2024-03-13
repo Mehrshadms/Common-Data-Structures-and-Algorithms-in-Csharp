@@ -1,5 +1,3 @@
-using Trees.Shared;
-
 namespace Trees.BinaryTree.DataType;
 
 public class BinaryTreeDataType

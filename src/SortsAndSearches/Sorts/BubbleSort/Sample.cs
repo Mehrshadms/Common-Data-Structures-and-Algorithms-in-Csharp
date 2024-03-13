@@ -1,4 +1,4 @@
-namespace SortsAndSearches.BubbleSort;
+namespace SortsAndSearches.Sorts.BubbleSort;
 
 public static class Sample
 {
