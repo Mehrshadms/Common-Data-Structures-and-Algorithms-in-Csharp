@@ -3,28 +3,20 @@ namespace SortsAndSearches.Sorts.BubbleSort;
 public static class Sample
 {
     private static readonly BubbleSortAlgorithm BubbleSort = new BubbleSortAlgorithm(10);
-    private static int[] dataSample = [6, 5, 1, 7, 2, 4, 10, 20, 3, 100];
     public static void ExecuteSample()
     {
         Console.WriteLine("Bubble Sort Sample Running...");
         BubbleSortArray();
+        Console.WriteLine("Done.");
     }
 
     private static void BubbleSortArray()
     {
-        ArrayPrinter(dataSample);
-        BubbleSort.InsertDataArray(dataSample);
+        Shared.ArrayPrinter(DataSamples.DataSample);
+        BubbleSort.InsertDataArray(DataSamples.DataSample);
         Console.WriteLine("Bubble Sorting...");
         BubbleSort.DoBubbleSort();
-        ArrayPrinter(BubbleSort.GetArray());
+        Shared.ArrayPrinter(BubbleSort.GetArray());
     }
 
-    private static void ArrayPrinter(int[] arr)
-    {
-        for (int i = 0; i < arr.Length; i++)
-        {
-            Console.Write($"{arr[i]} ,");
-        }
-        Console.WriteLine();
-    }
 }

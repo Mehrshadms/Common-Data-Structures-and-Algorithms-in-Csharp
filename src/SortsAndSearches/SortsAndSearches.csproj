@@ -13,7 +13,6 @@
 
     <ItemGroup>
       <Folder Include="Searches\" />
-      <Folder Include="Sorts\" />
       <Folder Include="TreeTraversal\BFS\" />
       <Folder Include="TreeTraversal\DFS\" />
     </ItemGroup>
